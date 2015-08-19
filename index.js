@@ -1,16 +1,10 @@
-var http = require("http");
-var _ip = require("ip");
+var express = require('express');
+var app = express();
 
-http.createServer(function (request, response) {
+app.get('/', function (req, res) {
+  res.send('Hello Ezhil Sankar Esakki!');
+});
 
-   // Send the HTTP header 
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'});
-   
-   // Send the response body as "Hello World"
-   response.end('Hello Ezhil Sankar Esakki!!!\n');
-}).listen(5000);
-
-// Console will print the message
-console.log('Server running at http://'+_ip.address()+':5000/');
+var server = app.listen(5000, function () {
+   console.log('Example app listening at http://localhost:3000');
+});
